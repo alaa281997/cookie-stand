@@ -36,7 +36,7 @@ allBranches.prototype.cookieSalesAvg = function(){
       this.Avg.push( Math.floor(this.Arr[i] * this.avg));
     } console.log(this.Avg)
   }
-console.log('Hello from works',branchOne.Avg)
+console.log('Hello from works',branchOne.Avg) 
 allBranches.prototype.total = function() {
     for (let i = 0; i < this.Avg.length; i++) {
       if (isNaN(this.Avg[i])) {
@@ -79,6 +79,9 @@ parent.appendChild(hoursHeader);
            headerr.textContent = arrayHours[i] ;
            parent.appendChild(headerr) 
        }   
+       let TotalTh = document.createElement('th');
+       parent.appendChild(TotalTh);
+       TotalTh.textContent = "Daily Total";
 }
 
 
