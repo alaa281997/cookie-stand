@@ -1,0 +1,34 @@
+table, tr, th ,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+header{
+    background-color: aqua;
+    height: 100px;
+    }
+ nav{
+     padding-right: 10%;
+     float: right;
+ }
+nav ul li{
+    padding: 20px;
+         display: inline-block;
+         
+}
+a{
+    text-decoration: none;
+    color: red;
+
+}
+header img{
+    width: 25%;
+    height: 40%;
+    padding-left: 10px;
+    padding-top: 2%;
+}
+
+body h1{
+    text-align: center;
+    color: blue;
+}
