@@ -47,6 +47,22 @@ allBranches.prototype.total = function() {
     console.log(this.Total)
   }
 
+// branchOne.customer()
+// branchTwo.customer()
+// branchThree.customer()
+// branchFour.customer()
+// branchFive.customer()
+// branchOne.cookieSalesAvg()
+// branchTwo.cookieSalesAvg()
+// branchThree.cookieSalesAvg()
+// branchFour.cookieSalesAvg()
+// branchFive.cookieSalesAvg()
+// branchOne.total()
+// branchTwo.total()
+// branchThree.total()
+// branchFour.total()
+// branchFive.total()
+
 function Header(){
 let parent = document.getElementById('table');
 console.log(parent);
@@ -122,6 +138,8 @@ Header();
 for(let i =0;i<stores.length;i++){
   cities[i].customer();
   cities[i].cookieSalesAvg();
+  cities[i].total(); 
   cities[i].render();
+  
 }
 Footer();
