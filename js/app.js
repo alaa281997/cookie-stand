@@ -73,7 +73,7 @@ allBranches.prototype.render = function(){
   let addingRow = document.createElement('tr');
   table.appendChild(addingRow);
   let addingTd = document.createElement('td')
-  addingRow.appendChild(addingTd);
+  addingRow.appendChild(addingTd);    
   addingTd.textContent=this.name;
 
   for (let i=0 ; i<arrayHours.length;i++){
@@ -139,31 +139,8 @@ function submitter(evt){
  console.log(minField);
 
 let newName = new allBranches(nameField,maxField,minField,avgField);
-stores.push(this) ;
-console.log(newName);
 
-newName.customer();
-newName.cookieSalesAvg();
-newName.total();
-
-let newRow = document.createElement('tr') ;
-table.appendChild(newRow) ; 
-
-let newTh = document.createElement('th') ; 
-newTh.innerText = newName.name ; 
-newRow.appendChild(newTh)
-
-for (let j = 0; j < arrayHours.length; j++) {
-  let newLine = document.createElement('td') ;
-  newLine.innerText = newName.Arr[j] ;
-  newRow.appendChild(newLine)
 }
-let newLine = document.createElement('td') ;
-newLine.innerText = newName.Total ;
-newRow.appendChild(newLine)
-}
-
-
 Header();
 for(let i =0;i<stores.length;i++){
   cities[i].customer();
