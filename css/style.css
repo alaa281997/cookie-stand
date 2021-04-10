@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 header{
     background-color: aqua;
@@ -27,4 +28,9 @@ header img{
 body h1{
     text-align: center;
     color: blue;
+=======
+table, tr, th ,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+>>>>>>> e42292775a330ef058947c7e58381e4a19a3e899
 }
