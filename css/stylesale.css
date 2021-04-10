@@ -1,0 +1,20 @@
+header fieldset{
+    width: 40%;
+}
+
+main {
+    margin-top:35px;
+}
+table, tr, th ,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+h4{
+    padding-left: 250px;
+}
+header fieldset label{
+    padding:10px;
+}
+#Button{
+float: right; }
+
