@@ -1,21 +1,22 @@
 'use strict'
 function randomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-let arrayHours = [`6 am `,`7 am `, `8 am `, `9 am `, `10 am `, `11 am `, `12 pm `,
+let arrayHours = [`6 am `, `7 am `, `8 am `, `9 am `, `10 am `, `11 am `, `12 pm `,
   `1 pm `, `2 pm `, `3 pm `, `4 pm `, `5 pm `, `6 pm `, `7 pm `];
 
 
-let stores= [];
-let allBranches = function(name,min,max,avg) {
-this.name = name;
-this.min = min ;
-this.max = max;
-this.avg = avg;
-this.Avg = [];
-this.Total = 0;
-this.Arr = [];
-stores.push(this);
+let stores = [];
+
+let allBranches = function (name, min, max, avg) {
+  this.name = name;
+  this.min = min;
+  this.max = max;
+  this.avg = avg;
+  this.Avg = [];
+  this.Total = 0;
+  this.Arr = [];
+  stores.push(this);
 }
 
 let Seattle = new allBranches("Seattle", 23, 65, 6.3);
@@ -23,138 +24,162 @@ let Tokyo = new allBranches("Tokyo", 3, 24, 1.2);
 let Dubai = new allBranches("Dubai", 11, 38, 6.7);
 let Paris = new allBranches("Paris", 20, 38, 2.3);
 let Lima = new allBranches("Lima", 2, 16, 4.6);
-let cities = [Seattle,Tokyo,Dubai,Paris,Lima];
+//let cities = [Seattle, Tokyo, Dubai, Paris, Lima];//
 
-allBranches.prototype.customer = function() {
-    for (let i = 0; i < arrayHours.length; i++){
-      this.Arr.push(randomNumber(this.min, this.max)) 
-    } 
-     console.log(this.Arr)
+//first function to get random number and store it inside array (arr[])
+allBranches.prototype.customer = function () {
+  for (let i = 0; i < arrayHours.length; i++) {
+    this.Arr.push(randomNumber(this.min, this.max))
+  }
+  console.log(this.Arr)
 }
-allBranches.prototype.cookieSalesAvg = function(){
- for (let i = 0; i < arrayHours.length; i++) {
-      this.Avg.push( Math.floor(this.Arr[i] * this.avg));
-    } console.log(this.Avg)
-  }
+
+//get avg by multiple index of arr[] and avg using loop
+allBranches.prototype.cookieSalesAvg = function () {
+  for (let i = 0; i < arrayHours.length; i++) {
+    this.Avg.push(Math.floor(this.Arr[i] * this.avg));
+  } console.log(this.Avg)
+}
+
 // console.log('Hello from works',branchOne.Avg) 
-allBranches.prototype.total = function() {
-    for (let i = 0; i < this.Avg.length; i++) {
-      if (isNaN(this.Avg[i])) {
-        continue;
-      }
-      this.Total += this.Avg[i];
-    }
-    console.log(this.Total)
+// function for total 
+allBranches.prototype.total = function () {
+  for (let i = 0; i < this.Avg.length; i++) {
+    this.Total += this.Avg[i];
   }
+  console.log(this.Total)
+}
+
+//Table using DOM
+
 let parent = document.getElementById('table');
 console.log(parent);
-let table = document.createElement('table');
-parent.appendChild(table);
-
-function Header(){
-
-let headerRowNew = document.createElement('tr');
-table.appendChild(headerRowNew);
-
-let hoursHeader = document.createElement('th') ;
-    console.log(parent);
-
-parent.appendChild(hoursHeader);
-    hoursHeader.textContent='Name';
-    for (let i = 0; i <arrayHours.length; i++) {
-           let headerr = document.createElement('th') ;
-           headerr.textContent = arrayHours[i] ;
-           parent.appendChild(headerr) 
-       }   
-       let TotalTh = document.createElement('th');
-       parent.appendChild(TotalTh);
-       TotalTh.textContent = "Daily Total";
-}
+let tableDetails = document.createElement('table');
+parent.appendChild(tableDetails);
 
 
-allBranches.prototype.render = function(){
+let addingRow = document.createElement('tr');
+tableDetails.appendChild(addingRow);
+allBranches.prototype.render = function () {
   let addingRow = document.createElement('tr');
-  table.appendChild(addingRow);
+  parent.appendChild(addingRow);
+
+  //adding location name
   let addingTd = document.createElement('td')
-  addingRow.appendChild(addingTd);    
-  addingTd.textContent=this.name;
+  addingRow.appendChild(addingTd);
+  addingTd.textContent = this.name;
 
-  for (let i=0 ; i<arrayHours.length;i++){
+  // add random number to cells 
+  for (let i = 0; i < arrayHours.length; i++) {
     let cookieS = document.createElement('td');
-
     addingRow.appendChild(cookieS);
     cookieS.textContent = this.Avg[i];
   }
+  // Add total add last cell in the row
   let totalTd = document.createElement('td')
   addingRow.appendChild(totalTd);
-  totalTd.textContent=this.Total;
+  totalTd.textContent = this.Total;
 
 }
 
-function Footer(){
-  let addRowFooter = document.createElement('tr');
+//add header
+function Header() {
 
-  table.appendChild(addRowFooter);
+  let headerRow = document.createElement('tr');
+  parent.appendChild(headerRow);
+
+  let hoursHeader = document.createElement('th');
+  // console.log(parent);
+  parent.appendChild(hoursHeader);
+  hoursHeader.textContent = 'Name';
+//looping time
+  for (let i = 0; i < arrayHours.length; i++) {
+    let headerClock = document.createElement('th');
+    parent.appendChild(headerClock)
+    headerClock.textContent = arrayHours[i];
+    
+  }
+// last column in header
+  let TotalTh = document.createElement('th');
+  parent.appendChild(TotalTh);
+  TotalTh.textContent = "Daily Total";
+  
+}
+
+// footer
+function Footer() {
+
+  let addRowFooter = document.createElement('tr');
+  parent.appendChild(addRowFooter);
 
   let addTh = document.createElement('th');
-
   addRowFooter.appendChild(addTh);
+  addTh.textContent = 'Totals';
 
-  addTh.textContent='Totals';
-
-  let totalCus;
-  let allTotal=0;
-  for(let i = 0 ; i<arrayHours.length;i++){
-    let totalCus =0;
-    for(let j= 0;j<stores.length;j++){
+// total for each hour
+  let allTotal = 0;
+  for (let i = 0; i < arrayHours.length; i++) {
+    let totalCus = 0;
+    for (let j = 0; j < stores.length; j++) {
       totalCus += stores[j].Avg[i];
-      allTotal +=stores[j].Avg[i];
+      allTotal += stores[j].Avg[i];
     }
     console.log(totalCus);
-     
-    let addThFooter=document.createElement('th');
+
+    let addThFooter = document.createElement('th');
     addRowFooter.appendChild(addThFooter);
-    addThFooter.textContent= totalCus;
-    }
-    let finalTh =document.createElement('th');
-    addRowFooter.appendChild(finalTh);
-    finalTh.textContent=allTotal;
+    addThFooter.textContent = totalCus;
+  }
+  let finalTh = document.createElement('th');
+  addRowFooter.appendChild(finalTh);
+  finalTh.textContent = allTotal;
 }
-let tableForm = document.getElementById('tableForm');
-console.log(tableForm);
 
-tableForm.addEventListener('submit',submitter);
+// form
+ let tableForm = document.getElementById('tableForm');
+ console.log(tableForm);
 
-function submitter(evt){
-  evt.preventDefault();
-  console.log(evt);
+tableForm.addEventListener('submit', submitter);
 
- let nameField=evt.target.nameField.value;
- console.log(nameField);
- 
- let avgField=evt.target.avgField.value;
- console.log(avgField);
+ function submitter(evt) {
+   evt.preventDefault();
+   console.log(evt);
 
- let maxField=evt.target.maxField.value;
- console.log(maxField); 
- 
- let minField=evt.target.minField.value;
- console.log(minField);
+   let nameField = evt.target.nameField.value;
+   console.log(nameField);
 
-let newName = new allBranches(nameField,maxField,minField,avgField);
+  let maxField = evt.target.maxField.value;
+  console.log(maxField);
 
-table.textContent='';
+  let minField = evt.target.minField.value;
+  console.log(minField);
+  
+  let avgField = evt.target.avgField.value;
+  console.log(avgField);
 
-console.log(table);
+  let newName = new allBranches(nameField, minField,maxField, avgField);
 
+  parent.textContent = '';
 
-}
+// calling the new submit
+  Header();
+   newName.customer();
+   newName.cookieSalesAvg();
+   newName.total();
+ for (let i = 0; i < stores.length; i++) {
+
+  stores[i].render();
+   }
+  Footer();
+  }
+// call the static location
 Header();
-for(let i =0;i<stores.length;i++){
+
+for (let i = 0; i < stores.length; i++) {
   stores[i].customer();
   stores[i].cookieSalesAvg();
-  stores[i].total(); 
-  stores[i].render(); 
+  stores[i].total();
+  stores[i].render();
 }
 
 Footer();
