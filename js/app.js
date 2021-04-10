@@ -42,16 +42,19 @@ allBranches.prototype.total = function() {
       if (isNaN(this.Avg[i])) {
         continue;
       }
-      this.Total += Number(this.Avg[i]);
+      this.Total += this.Avg[i];
     }
     console.log(this.Total)
   }
-
-function Header(){
 let parent = document.getElementById('table');
 console.log(parent);
-let Table = document.createElement('table');
-parent.appendChild(Table);
+let table = document.createElement('table');
+parent.appendChild(table);
+
+function Header(){
+
+let headerRowNew = document.createElement('tr');
+table.appendChild(headerRowNew);
 
 let hoursHeader = document.createElement('th') ;
     console.log(parent);
@@ -140,13 +143,18 @@ function submitter(evt){
 
 let newName = new allBranches(nameField,maxField,minField,avgField);
 
+table.textContent='';
+
+console.log(table);
+
+
 }
 Header();
 for(let i =0;i<stores.length;i++){
-  cities[i].customer();
-  cities[i].cookieSalesAvg();
-  cities[i].total(); 
-  cities[i].render(); 
+  stores[i].customer();
+  stores[i].cookieSalesAvg();
+  stores[i].total(); 
+  stores[i].render(); 
 }
 
 Footer();
