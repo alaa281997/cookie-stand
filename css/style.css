@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 
 header{
-    background-color: aqua;
+    background-color: salmon;
     height: 100px;
     }
  nav{
-     padding-right: 10%;
+     padding-right:28%;
      float: right;
  }
 nav ul li{
@@ -15,22 +14,106 @@ nav ul li{
 }
 a{
     text-decoration: none;
-    color: red;
-
-}
+    color:teal;
+ font-size: large;
+ font-family: 'Roboto', sans-serif;}
 header img{
-    width: 25%;
+    width: 25%;   
     height: 40%;
     padding-left: 10px;
     padding-top: 2%;
 }
+.tabBranch h4{
+font-family: 'Times New Roman', Times, serif;
+}
 
 body h1{
     text-align: center;
-    color: blue;
-=======
+    color: salmon;
+    font-family:Arial, Helvetica, sans-serif
+
+}
 table, tr, th ,td{
     border: 1px solid black;
-    border-collapse: collapse;
->>>>>>> e42292775a330ef058947c7e58381e4a19a3e899
+    border-collapse:separate;
+    text-align: center;
+}
+td,tr{
+    font-family: "Sofia", sans-serif;
+   color:darkslategrey;
+}
+
+table{
+    width: 100%;
+}
+body{
+    background-color:cornflowerblue;
+}
+
+ .tabBranch{
+     position: relative;
+     padding-top: 5%;
+
+ }
+ .tabBranch img{
+    width: 30%;
+    position: relative;
+    left:30%;
+ }
+ 
+ 
+ .img-left img{
+    width: 30%;
+    padding-top: 5%;
+    position: relative;
+    left:30%;
+ }
+ .imgpic{
+  border-style: solid;
+  text-align: center;
+  margin-top: 10%;
+ }
+ .i3left{
+  width:30px;
+  display: inline;
+  padding-left: 10%;
+
+ }
+ .i3left img{
+     padding-top: 10%;
+    padding-left: 5%;
+ }
+ .last_div{
+     margin-top: 5%;
+     padding-top: 10%;
+}
+ .last_div h3{
+ position: relative;
+ left: 40%;
+ bottom: 130px;
+ font-family: "Sofia", sans-serif;
+ color: darksalmon;
+
+ }
+ #flip{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    position:relative;
+    bottom: 240px; 
+}
+#flipleft{
+    position: relative;
+    left: 60%;
+}
+
+.rotateimg1{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+hr{
+    background-color: salmon;
+    height: 10px;
+}
+footer p{
+    text-align: center;
 }
