@@ -1,20 +1,27 @@
-header fieldset{
+ fieldset{
     width: 40%;
 }
+body{
+    background-color:aquamarine;
+    padding: 10px;
+}
 
-main {
-    margin-top:35px;
-}
 table, tr, th ,td{
-    border: 1px solid black;
+    border: 1px solid darkorange;
     border-collapse: collapse;
+   text-align: center;
 }
+#tableForm{
+    padding-bottom: 5%;
+}
+
 h4{
     padding-left: 250px;
 }
-header fieldset label{
+fieldset label{
     padding:10px;
 }
 #Button{
-float: right; }
+float: right;
+ }
 
